@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.4" type="plugin" group="system" method="upgrade">
+	<name>System - Bootstrap 4 Template Plugin</name>
+	<author>Denis Mokhin</author>
+	<creationDate>November 2017</creationDate>
+	<copyright>Copyright 2017 Michael Babker. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>denis@mokhin-tech.ru</authorEmail>
+	<authorUrl>http://mokhin-tech.ru</authorUrl>
+	<version>1.0.0</version>
+	<description>Plugin to register overridden JHtml helpers for the Bootstrap4 demo template</description>
+	<files>
+		<filename plugin="bootstrap3">bootstrap4.php</filename>
+	</files>
+</extension>

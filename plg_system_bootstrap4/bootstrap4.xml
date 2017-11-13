@@ -10,6 +10,6 @@
 	<version>1.0.0</version>
 	<description>Plugin to register overridden JHtml helpers for the Bootstrap4 demo template</description>
 	<files>
-		<filename plugin="bootstrap3">bootstrap4.php</filename>
+		<filename plugin="bootstrap4">bootstrap4.php</filename>
 	</files>
 </extension>

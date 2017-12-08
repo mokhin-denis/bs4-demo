@@ -200,7 +200,7 @@ class PlgSystemBootstrap4 extends JPlugin
 	{	
 		$name = isset($params['name']) ? $params['name'] : 'frmModal';
 		$content = isset($params['content']) ? $params['content'] : 'Modal content';
-		$titletag = isset($params['titletag']) ? $params['titletag'] : '<h3/>';
+		$titletag = isset($params['titletag']) ? $params['titletag'] : 'h3';
 		$title = isset($params['title']) ? $params['title'] : 'Title';
 		
 		// Include jQuery
@@ -215,6 +215,11 @@ class PlgSystemBootstrap4 extends JPlugin
                         jQuery('<div/>',{
                             class:  'modal-header'
                         }).append(
+                            jQuery('<$titletag/>',{
+                                class:  'modal-title',
+                                id:     '{$name}Label'
+                            }).html('$title')
+                        ).append(
                             jQuery('<button/>',{
                                 type:           'button',
                                 class:          'close',
@@ -225,11 +230,6 @@ class PlgSystemBootstrap4 extends JPlugin
                                     'aria-hidden': 'true'
                                 })
                             ).html('&times;')
-                        ).append(
-                            jQuery('$titletag',{
-                                class:  'modal-title',
-                                id:     '{$name}Label'
-                            }).html('$title')
                         )
                     ).append(
                         jQuery('<div/>',{
@@ -241,20 +241,15 @@ class PlgSystemBootstrap4 extends JPlugin
 			id:                 '$name',
 			tabindex:           '-1',
 			role:               'dialog',
-			'aria-labelledby':  '{$name}Label'
-		}).css({
-                        'text-align': 'center'
-                    }).append(
+			'aria-labelledby':  '{$name}Label',
+			'aria-hidden':      'true'
+		}).append(
 		jQuery('<div/>',{
 			class:  'modal-dialog',
 			role:   'document'
 		}).append(
 			content
-			).css({
-                'max-width': '100%',
-                width: 'auto',
-                display: 'inline-block'
-            })
+			)
 		);
 
 		//Insert modal to DOM
@@ -281,8 +276,8 @@ class PlgSystemBootstrap4 extends JPlugin
 		if ($includeMainCss)
 		{
 			JHtml::_('stylesheet', 'jui/bootstrap.min.css', $attribs, true);
-			JHtml::_('stylesheet', 'jui/bootstrap-grid.min.css', $attribs, true);
-			JHtml::_('stylesheet', 'jui/bootstrap-reboot.min.css', $attribs, true);
+			//JHtml::_('stylesheet', 'jui/bootstrap-grid.min.css', $attribs, true);
+			//JHtml::_('stylesheet', 'jui/bootstrap-reboot.min.css', $attribs, true);
 		}
 
 		// Load Bootstrap RTL CSS
